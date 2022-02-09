@@ -1,0 +1,33 @@
+<div class="div">
+    <mat-card class="card" >
+        <form class="padding" fxLayout="column" fxLayoutGap="16px" align="center" [formGroup]="form" (ngSubmit)="send()">
+            <div fxLayout="column" align="center">
+                <h1>Sing In</h1>
+             </div>
+             <div fxLayout="column" class="div1">
+                <mat-form-field class="field"  fxFlex="grow" align="center">
+                    <mat-label>Email</mat-label>
+                        <input matInput required formControlName="email">
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" class="div1">
+                <mat-form-field class="field" fxFlex="grow" align="center">
+                    <mat-label>Password</mat-label>
+                        <input matInput required formControlName="password">
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" class="div1">
+                <mat-checkbox class="caption">Remember Me</mat-checkbox>
+            </div>
+            <button type="button" class="btn btn-primary btn-rounded button" (click)="signup()">SIGN UP</button>
+            <button type="submit" class="btn btn-primary btn-rounded">SIGN IN</button>
+            <div class="social">
+                <i class="fab fa-facebook-f icon"></i>
+                <i class="fab fa-twitter icon"></i>
+                <i class="fab fa-google icon"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </form>
+    </mat-card>
+</div>
+  

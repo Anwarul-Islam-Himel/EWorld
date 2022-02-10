@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IToken } from 'src/app/Models/itoken.model';
+import { AuthService } from '../login/auth.service';
 import { SignupService } from './signup.service';
 
 @Component({
@@ -16,19 +18,30 @@ export class SignupComponent implements OnInit {
     password: ['', [Validators.required, Validators.maxLength(32)]],
     confirmPassword: ['', [Validators.required, Validators.maxLength(32)]]
   });
+  errorText = null;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: SignupService
+    private signService: SignupService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    if(this.authService.isLoggedIn) {
+      this.router.navigate(['/']);
+    }
   }
 
   send(){
-    this.authService.signUp(this.form.value)
-      .subscribe();
+    this.signService.signUp(this.form.value)
+      .subscribe({
+        next: (result: IToken) => {
+          this.authService.saveToken(result.token);
+          location.reload();
+        },
+        error: e => this.errorText = e
+      });
   }
 
 }

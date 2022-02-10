@@ -10,7 +10,7 @@ export class SignupService {
   private apiUrl :string;
 
   constructor(private http: HttpClient) { 
-    this.apiUrl = environment.apiUrl + '/api/User';
+    this.apiUrl = environment.apiUrl + '/api/Auth';
   }
 
   signUp(model: IRegister) {

@@ -4,6 +4,9 @@
             <div align="center" >
                 <h1>Sign Up</h1>
             </div>
+            <div class="alert-danger" *ngIf="errorText">
+                <div>{{errorText}}</div>
+              </div>
             <div fxLayout="column" class="div1">
                 <mat-form-field class="field"  fxFlex="grow" align="center">
                     <mat-label>Name</mat-label>

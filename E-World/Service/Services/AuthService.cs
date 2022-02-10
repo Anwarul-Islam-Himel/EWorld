@@ -47,7 +47,8 @@ namespace Service.Services
         }
         public async Task<Result<object>> Login(string email, string password) 
         {
-            var user = await _userManager.FindByIdAsync(email);
+            var user = await _userManager.FindByEmailAsync(email);
+            Console.WriteLine(user);
             if(user!=null && await _userManager.CheckPasswordAsync(user, password))
             {
                 return new Result<object> { StatusCode = 200, Response = new { Token = GenerateToken(email) } };

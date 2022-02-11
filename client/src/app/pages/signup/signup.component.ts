@@ -28,9 +28,6 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if(this.authService.isLoggedIn) {
-      this.router.navigate(['/']);
-    }
   }
 
   send(){
@@ -38,9 +35,11 @@ export class SignupComponent implements OnInit {
       .subscribe({
         next: (result: IToken) => {
           this.authService.saveToken(result.token);
-          location.reload();
+          this.router.navigate(['/home']);
         },
-        error: e => this.errorText = e
+        error: e => {
+          this.errorText = e.error.message;
+        }
       });
   }
 

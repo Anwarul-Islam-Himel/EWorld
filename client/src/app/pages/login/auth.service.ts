@@ -13,6 +13,10 @@ export class AuthService {
 
   constructor(private http:HttpClient) { 
     this.apiUrl = environment.apiUrl + '/api/Auth';
+    const token = localStorage.getItem('userToken');
+    if(token){
+        this.userToken = new BehaviorSubject<string>(token);
+    }
   }
   get getToken(): string {
     return this.userToken.value;
@@ -23,5 +27,8 @@ export class AuthService {
   saveToken(token: string) {
     localStorage.setItem('userToken', token);
     this.userToken = new BehaviorSubject<string>(token);
+  }
+  logOut() {
+    localStorage.clear();
   }
 }

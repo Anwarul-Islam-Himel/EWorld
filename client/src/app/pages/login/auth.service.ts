@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { IUser } from 'src/app/Models/user.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -23,6 +24,9 @@ export class AuthService {
   }
   get isLoggedIn(): boolean {
     return localStorage.getItem('userToken') ? true : false;
+  }
+  signIn(model: IUser){
+    return this.http.post(this.apiUrl + '/login', model);
   }
   saveToken(token: string) {
     localStorage.setItem('userToken', token);

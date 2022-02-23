@@ -4,6 +4,9 @@
             <div fxLayout="column" align="center">
                 <h1>Sing In</h1>
              </div>
+             <div class="alert-danger" *ngIf="errorText">
+                <div>{{errorText}}</div>
+            </div>
              <div fxLayout="column" class="div1">
                 <mat-form-field class="field"  fxFlex="grow" align="center">
                     <mat-label>Email</mat-label>
@@ -20,7 +23,7 @@
                 <mat-checkbox class="caption">Remember Me</mat-checkbox>
             </div>
             <button type="button" class="btn btn-primary btn-rounded button" (click)="signup()">SIGN UP</button>
-            <button type="submit" class="btn btn-primary btn-rounded">SIGN IN</button>
+            <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-rounded">SIGN IN</button>
             <div class="social">
                 <i class="fab fa-facebook-f icon"></i>
                 <i class="fab fa-twitter icon"></i>

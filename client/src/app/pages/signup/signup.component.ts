@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IToken } from 'src/app/Models/itoken.model';
+import { IToken } from 'src/app/Models/token.model';
 import { AuthService } from '../login/auth.service';
 import { SignupService } from './signup.service';
 

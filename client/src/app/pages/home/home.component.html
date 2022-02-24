@@ -1,6 +1,8 @@
 <div class="div">
-    <div>
-        <button class="btn btn-primary btn-rounded" (click)="logout()">LogOut</button>
-    </div>
-    <mat-card class="card"></mat-card>
+    <mat-card class="card">
+        <img mat-card-image src="/assets/images/work-in-progress.jpg">
+        <div>
+            <button class="btn btn-primary btn-rounded" [disabled] = "!LogedIn" (click)="logout()">LogOut</button>
+        </div>
+    </mat-card>
 </div>

@@ -9,6 +9,9 @@ import { AuthService } from '../login/auth.service';
 })
 export class HomeComponent implements OnInit {
 
+
+  LogedIn = this.authService.isLoggedIn;
+
   constructor(
     private authService: AuthService,
     private router:Router

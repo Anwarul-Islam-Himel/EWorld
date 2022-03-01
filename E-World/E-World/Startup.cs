@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Service.Services;
+using AutoMapper;
+using Service.ModelMap;
 
 namespace E_World
 {
@@ -38,6 +40,9 @@ namespace E_World
             .AddDefaultTokenProviders();
 
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IShopService, ShopService>();
+
+            services.AddAutoMapper(typeof(MapperProfile));
 
             services.AddCors(options =>
             {

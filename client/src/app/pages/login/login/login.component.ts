@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit {
   });
 
   errorText = null;
+  ShowPass: boolean = false;
+  ShowEye: boolean = false;
+
   
   constructor(
     private fb: FormBuilder,
@@ -48,5 +51,9 @@ export class LoginComponent implements OnInit {
   }
   signup(){
     this.router.navigate(['/signup']);
+  }
+  showPassword() {
+    this.ShowPass = !this.ShowPass;
+    this.ShowEye = !this.ShowEye;
   }
 }

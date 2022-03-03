@@ -19,6 +19,8 @@ export class SignupComponent implements OnInit {
     confirmPassword: ['', [Validators.required, Validators.maxLength(32)]]
   });
   errorText = null;
+  ShowPass: boolean = false;
+  ShowEye: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -41,6 +43,10 @@ export class SignupComponent implements OnInit {
           this.errorText = e.error.message;
         }
       });
+  }
+  showPassword() {
+    this.ShowPass = !this.ShowPass;
+    this.ShowEye = !this.ShowEye;
   }
 
 }

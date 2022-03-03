@@ -9,7 +9,10 @@ namespace Service.ModelMap
     {
         public MapperProfile()
         {
-            CreateMap<ShopVM, Shop>();
+            CreateMap<ShopVM, Shop>()
+                .ForMember(dest =>dest.Id , opt => opt.Ignore());
+
+            CreateMap<Shop, ShopVM>();
         }
     }
 }

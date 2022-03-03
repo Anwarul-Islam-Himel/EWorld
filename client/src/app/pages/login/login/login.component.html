@@ -16,7 +16,10 @@
             <div fxLayout="column" class="div1">
                 <mat-form-field class="field" fxFlex="grow" align="center">
                     <mat-label>Password</mat-label>
-                        <input matInput required formControlName="password">
+                    <input [type]="ShowPass ? 'text' : 'password'" matInput required formControlName="password">
+                    <div class="PassStyle">
+                        <i [class]="ShowEye ? 'fa fa-eye' : 'fa fa-eye-slash'"  (click)="showPassword()"></i>
+                    </div>
                 </mat-form-field>
             </div>
             <div fxLayout="column" class="div1">
